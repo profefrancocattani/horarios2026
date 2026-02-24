@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios Equipo Pastoral 2026 - Jesús Obrero</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luster: '#F4F1EC',
+                        aster: '#9BACD8',
+                        habanero: '#F98513',
+                        jodhpur: '#DAD1C8',
+                        space: '#223382',
+                        deadly: '#111144',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F4F1EC; /* Luster White */
+        }
+        @media print {
+            body {
+                background-color: #F4F1EC !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-break {
+                page-break-before: always;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .shadow-sm, .shadow-md, .shadow-lg {
+                box-shadow: none !important;
+                border: 1px solid #DAD1C8;
+            }
+        }
+        /* Detalles geométricos inspirados en la imagen */
+        .sharp-gradient {
+            background: linear-gradient(135deg, #111144 50%, #223382 50%);
+        }
+        .sharp-gradient-orange {
+            background: linear-gradient(135deg, #F4F1EC 50%, #F98513 50%);
+        }
+    </style>
+</head>
+<body class="text-deadly p-4 md:p-8 selection:bg-habanero selection:text-white">
+
+    <div class="max-w-6xl mx-auto" id="schedule-container">
+        <!-- Encabezado -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-2 pb-6 border-jodhpur">
+            <div class="relative">
+                <div class="absolute -left-4 top-1 w-2 h-12 bg-habanero"></div>
+                <h1 class="text-4xl font-bold text-deadly tracking-tight">2026</h1>
+                <p class="text-space font-medium mt-1 tracking-wide uppercase text-sm">Equipo Pastoral Jesús Obrero <span class="text-deadly/50 lowercase ml-1">(Mauro, Mayra, Franco)</span></p>
+            </div>
+            <div class="flex gap-3 mt-6 md:mt-0 no-print" id="action-buttons">
+                <button onclick="downloadImage()" class="bg-space hover:bg-[#1a2661] text-white font-semibold py-2.5 px-5 rounded shadow-md transition flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Imagen
+                </button>
+                <button onclick="window.print()" class="bg-habanero hover:bg-[#e07710] text-white font-semibold py-2.5 px-5 rounded shadow-md transition flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                    PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- Leyenda -->
+        <div class="flex flex-wrap gap-6 mb-8 bg-white/60 backdrop-blur-sm p-4 rounded border border-white shadow-sm">
+            <span class="font-bold text-xs uppercase text-space tracking-wider flex items-center mr-2">Referencias:</span>
+            <div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-aster"></div><span class="text-sm font-semibold text-deadly">Mauro</span></div>
+            <div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-space"></div><span class="text-sm font-semibold text-deadly">Mayra</span></div>
+            <div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-habanero"></div><span class="text-sm font-semibold text-deadly">Franco</span></div>
+            <div class="w-px h-5 bg-jodhpur mx-2 hidden sm:block"></div>
+            <div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-deadly bg-transparent"></div><span class="text-sm font-medium text-deadly">Clases</span></div>
+            <div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-deadly"></div><span class="text-sm font-medium text-deadly">Coord. Pastoral</span></div>
+        </div>
+
+        <!-- Grilla de Días -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- LUNES -->
+            <div class="flex flex-col">
+                <div class="bg-jodhpur text-deadly font-bold py-3 px-4 rounded-t border-b-2 border-deadly/10 text-center uppercase tracking-widest text-sm">Lunes</div>
+                <div class="bg-white/80 border-x border-b border-jodhpur/50 rounded-b p-4 flex flex-col gap-4 flex-grow shadow-sm">
+                    
+                    <!-- Item Mauro -->
+                    <div class="border-l-4 border-aster bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">09:45 - 10:45</div>
+                        <div class="font-bold text-deadly">Mauro</div>
+                        <div class="text-sm text-space font-medium">3ro A</div>
+                    </div>
+
+                    <!-- Item Pastoral -->
+                    <div class="bg-gradient-to-br from-deadly to-space p-3 text-luster shadow-md relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-aster"></div>
+                        <div class="text-[11px] font-bold text-aster mb-0.5 ml-2 tracking-wider">11:00 - 12:00</div>
+                        <div class="font-bold ml-2">Mauro</div>
+                        <div class="text-xs text-luster/90 font-semibold ml-2 uppercase tracking-widest mt-1">Pastoral</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- MARTES -->
+            <div class="flex flex-col">
+                <div class="bg-jodhpur text-deadly font-bold py-3 px-4 rounded-t border-b-2 border-deadly/10 text-center uppercase tracking-widest text-sm">Martes</div>
+                <div class="bg-white/80 border-x border-b border-jodhpur/50 rounded-b p-4 flex flex-col gap-4 flex-grow shadow-sm">
+                    
+                    <div class="border-l-4 border-aster bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">07:30 - 08:30</div>
+                        <div class="font-bold text-deadly">Mauro</div>
+                        <div class="text-sm text-space font-medium">6to U</div>
+                    </div>
+
+                    <!-- Item Pastoral -->
+                    <div class="bg-gradient-to-br from-deadly to-space p-3 text-luster shadow-md relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-aster"></div>
+                        <div class="text-[11px] font-bold text-aster mb-0.5 ml-2 tracking-wider">08:30 - 09:30</div>
+                        <div class="font-bold ml-2">Mauro</div>
+                        <div class="text-xs text-luster/90 font-semibold ml-2 uppercase tracking-widest mt-1">Pastoral</div>
+                    </div>
+
+                    <div class="border-l-4 border-aster bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">09:45 - 10:45</div>
+                        <div class="font-bold text-deadly">Mauro</div>
+                        <div class="text-sm text-space font-medium">2do A</div>
+                    </div>
+
+                    <div class="border-l-4 border-space bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">10:00 - 11:00</div>
+                        <div class="font-bold text-space">Mayra</div>
+                        <div class="text-sm text-deadly font-medium">4to A <span class="text-xs text-space/70">(Inglés)</span></div>
+                    </div>
+
+                    <div class="border-l-4 border-aster bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">11:00 - 12:00</div>
+                        <div class="font-bold text-deadly">Mauro</div>
+                        <div class="text-sm text-space font-medium">5to U</div>
+                    </div>
+
+                    <!-- Item Pastoral -->
+                    <div class="bg-gradient-to-br from-deadly to-space p-3 text-luster shadow-md relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-space"></div>
+                        <div class="text-[11px] font-bold text-aster mb-0.5 ml-2 tracking-wider">12:15 - 15:15</div>
+                        <div class="font-bold ml-2">Mayra</div>
+                        <div class="text-xs text-luster/90 font-semibold ml-2 uppercase tracking-widest mt-1">Pastoral</div>
+                    </div>
+
+                    <div class="border-l-4 border-habanero bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">12:15 - 13:15</div>
+                        <div class="font-bold text-habanero">Franco</div>
+                        <div class="text-sm text-deadly font-medium">2do B</div>
+                    </div>
+
+                    <!-- Item Pastoral -->
+                    <div class="bg-gradient-to-br from-deadly to-space p-3 text-luster shadow-md relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-habanero"></div>
+                        <div class="text-[11px] font-bold text-habanero mb-0.5 ml-2 tracking-wider">13:15 - 17:15</div>
+                        <div class="font-bold ml-2">Franco</div>
+                        <div class="text-xs text-luster/90 font-semibold ml-2 uppercase tracking-widest mt-1">Pastoral</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIÉRCOLES -->
+            <div class="flex flex-col">
+                <div class="bg-jodhpur text-deadly font-bold py-3 px-4 rounded-t border-b-2 border-deadly/10 text-center uppercase tracking-widest text-sm">Miércoles</div>
+                <div class="bg-white/80 border-x border-b border-jodhpur/50 rounded-b p-4 flex flex-col gap-4 flex-grow shadow-sm">
+                    
+                    <div class="border-l-4 border-space bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">13:00 - 16:00</div>
+                        <div class="font-bold text-space">Mayra</div>
+                        <div class="text-sm text-deadly font-medium leading-snug mt-1">4to B, 5to B, 6to B <br><span class="text-xs text-space/70">(Inglés)</span></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VIERNES -->
+            <div class="flex flex-col">
+                <div class="bg-jodhpur text-deadly font-bold py-3 px-4 rounded-t border-b-2 border-deadly/10 text-center uppercase tracking-widest text-sm">Viernes</div>
+                <div class="bg-white/80 border-x border-b border-jodhpur/50 rounded-b p-4 flex flex-col gap-4 flex-grow shadow-sm">
+                    
+                    <div class="border-l-4 border-aster bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">12:15 - 13:15</div>
+                        <div class="font-bold text-deadly">Mauro</div>
+                        <div class="text-sm text-space font-medium">1ro A</div>
+                    </div>
+
+                    <!-- Item Pastoral -->
+                    <div class="bg-gradient-to-br from-deadly to-space p-3 text-luster shadow-md relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-habanero"></div>
+                        <div class="text-[11px] font-bold text-habanero mb-0.5 ml-2 tracking-wider">12:15 - 13:15</div>
+                        <div class="font-bold ml-2">Franco</div>
+                        <div class="text-xs text-luster/90 font-semibold ml-2 uppercase tracking-widest mt-1">Pastoral</div>
+                    </div>
+
+                    <div class="border-l-4 border-space bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">13:00 - 16:00</div>
+                        <div class="font-bold text-space">Mayra</div>
+                        <div class="text-sm text-deadly font-medium leading-snug mt-1">4to B, 5to B, 6to B <br><span class="text-xs text-space/70">(Inglés)</span></div>
+                    </div>
+
+                    <div class="border-l-4 border-habanero bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">13:15 - 14:15</div>
+                        <div class="font-bold text-habanero">Franco</div>
+                        <div class="text-sm text-deadly font-medium">4to U</div>
+                    </div>
+
+                    <div class="border-l-4 border-habanero bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">14:30 - 15:30</div>
+                        <div class="font-bold text-habanero">Franco</div>
+                        <div class="text-sm text-deadly font-medium">3ro B</div>
+                    </div>
+
+                    <div class="border-l-4 border-habanero bg-white p-3 shadow-sm">
+                        <div class="text-[11px] font-bold text-space/60 mb-0.5 tracking-wider">15:30 - 16:30</div>
+                        <div class="font-bold text-habanero">Franco</div>
+                        <div class="text-sm text-deadly font-medium">1ro B</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Reuniones -->
+        <div class="mt-12 bg-white/80 backdrop-blur-sm border-l-4 border-habanero rounded p-6 shadow-sm print-break">
+            <h2 class="text-xl font-bold text-deadly mb-6 flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F98513" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                Reuniones de Equipo
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Duplas Mayra + Franco -->
+                <div>
+                    <h3 class="font-bold text-sm text-space uppercase tracking-widest mb-4 border-b border-jodhpur pb-2">Mayra + Franco</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between bg-luster/50 p-3 rounded border border-jodhpur/50">
+                            <span class="font-bold text-deadly">Martes 13:15 - 15:15</span>
+                            <span class="text-[10px] bg-deadly text-luster px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">Semanal</span>
+                        </li>
+                        <li class="flex items-center justify-between bg-luster/50 p-3 rounded border border-jodhpur/50">
+                            <span class="font-bold text-deadly">Martes 09:00 - 10:00</span>
+                            <span class="text-[10px] border border-space text-space px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">Alternativa</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Duplas Mauro + Franco -->
+                <div>
+                    <h3 class="font-bold text-sm text-space uppercase tracking-widest mb-4 border-b border-jodhpur pb-2">Mauro + Franco</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between bg-luster/50 p-3 rounded border border-jodhpur/50">
+                            <span class="font-bold text-deadly">Martes 8:30 - 9:30</span>
+                            <span class="text-[10px] border border-space text-space px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">Alternativa</span>
+                        </li>
+                        <li class="flex items-center justify-between bg-luster/50 p-3 rounded border border-jodhpur/50">
+                            <span class="font-bold text-deadly">Lunes 11:00 - 12:00</span>
+                            <span class="text-[10px] border border-space text-space px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">Alternativa</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadImage() {
+            const container = document.getElementById('schedule-container');
+            const btnContainer = document.getElementById('action-buttons');
+            
+            // Ocultamos temporalmente los botones para que no salgan en la foto
+            btnContainer.style.display = 'none';
+            
+            html2canvas(container, {
+                scale: 2, // Le damos el doble de resolución para que no se pixele
+                backgroundColor: '#F4F1EC' // Forzamos el color de fondo Luster
+            }).then(canvas => {
+                // Restauramos los botones
+                btnContainer.style.display = 'flex';
+                
+                // Forzamos la descarga
+                const link = document.createElement('a');
+                link.download = 'Horarios_Pastoral_JesusObrero_2026.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
